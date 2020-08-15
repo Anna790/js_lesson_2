@@ -350,5 +350,32 @@ const elBook1 = new ElBook("Ken Kesey", "One flew over the cuckoo's nest", 1962,
 Class comments*/
 
 
+function myArr() {
+	this.length = 0;
+ 
+  for (let i = 0; i < arguments.length; i++) {
+  	this[i] = arguments[i];
+    this.length++;
+  }
+ 
+  this.push = function (elem) { 
+  	this[this.length] = elem;
+    return ++this.length;
+  }
+
+	this.pop = function () {
+  	let item = this[this.length-1];
+  	delete this[this.length-1];	
+    this.length--;
+    return item;
+  }
+  
+  this.forEach = function (func) {
+  	for (let i = 0; i < this.length; i++) {
+    	func(this[i]);
+    }
+  }
+}
+
 
         
